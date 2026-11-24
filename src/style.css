@@ -1,0 +1,538 @@
+:root {
+  --yellow: #FFD600;
+  --yellow-hover: #F0C800;
+  --white: #FFFFFF;
+  --bg: #F6F7F9;
+  --text: #111827;
+  --muted: #5B6472;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.92);
+  --glass-shadow: 0 12px 36px rgba(17, 24, 39, 0.06);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-pill: 999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Latar belakang lembut untuk memantulkan efek Liquid Glass */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.45;
+}
+
+.blob-1 {
+  width: 460px;
+  height: 460px;
+  background: var(--yellow);
+  top: -140px;
+  right: -100px;
+}
+
+.blob-2 {
+  width: 380px;
+  height: 380px;
+  background: #FFF099;
+  bottom: 8%;
+  left: -120px;
+}
+
+/* Permukaan Liquid Glass Minimalis */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 16px;
+  z-index: 50;
+  max-width: 1080px;
+  margin: 16px auto 0;
+  border-radius: var(--radius-pill);
+  padding: 10px 20px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.brand-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 0 4px rgba(255, 214, 0, 0.25);
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-editor {
+  background: var(--yellow);
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+/* Tombol */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-yellow {
+  background: var(--yellow);
+  color: var(--text);
+}
+
+.btn-yellow:hover {
+  background: var(--yellow-hover);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  padding: 7px 14px;
+  font-size: 0.82rem;
+}
+
+.btn-danger {
+  background: #FEE2E2;
+  color: #B91C1C;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Layout Utama */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.hero {
+  text-align: center;
+  padding: 72px 0 48px;
+}
+
+.pill-tag {
+  display: inline-block;
+  background: var(--white);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+
+.highlight {
+  background: var(--yellow);
+  padding: 2px 12px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.visi-card {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  padding: 28px 32px;
+  border-radius: var(--radius-lg);
+}
+
+.visi-card p {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 8px;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Section */
+.section {
+  padding-top: 64px;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.label-small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.section h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Grid & Kartu */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.role-badge {
+  align-self: flex-start;
+  background: var(--yellow);
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.officer-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* Kartu Berita */
+.post-thumb {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background: #ECEEF2;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.post-excerpt {
+  font-size: 0.9rem;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.editor-controls {
+  display: flex;
+  gap: 6px;
+}
+
+/* Agenda */
+.agenda-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.agenda-item {
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.agenda-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.agenda-date-box {
+  background: var(--yellow);
+  border-radius: 14px;
+  padding: 10px 14px;
+  text-align: center;
+  min-width: 72px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.agenda-info h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.muted-text {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* Google Form Wrapper */
+.form-wrapper {
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+.form-desc {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.gform-iframe {
+  width: 100%;
+  height: 620px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--white);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(17, 24, 39, 0.35);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.modal-wide {
+  max-width: 680px;
+}
+
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.icon-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-stack label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.form-stack input,
+.form-stack select,
+.form-stack textarea {
+  font-family: inherit;
+  font-size: 0.92rem;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  background: var(--white);
+}
+
+.error-text {
+  color: #DC2626;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.reader-img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+
+.reader-title {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.reader-body {
+  margin-top: 16px;
+  white-space: pre-line;
+  font-size: 0.96rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 28px 20px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    margin: 10px 12px 0;
+    border-radius: 18px;
+  }
+  .nav-links {
+    display: none;
+  }
+}
