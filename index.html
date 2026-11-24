@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSIS SMAN 26 Kabupaten Tangerang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- Latar Ambient Halus untuk Efek Liquid Glass -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- Navbar Liquid Glass -->
+  <header class="navbar glass">
+    <div class="nav-container">
+      <a href="#beranda" class="brand">
+        <span class="brand-dot"></span>
+        <span>OSIS SMAN 26</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#beranda">Beranda</a>
+        <a href="#pengurus">Pengurus</a>
+        <a href="#jurnalistik">Jurnalistik</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#aspirasi">Aspirasi</a>
+      </nav>
+      <div class="nav-actions">
+        <span id="editor-badge" class="badge-editor hidden">Mode Editor</span>
+        <button id="auth-btn" class="btn btn-outline">Login Editor</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero & Visi -->
+    <section id="beranda" class="hero">
+      <span class="pill-tag">OSIS SMAN 26 Kabupaten Tangerang</span>
+      <h1>Wadah Aspirasi &amp; <span class="highlight">Teladan Siswa</span></h1>
+      <div class="visi-card glass">
+        <span class="label-small">VISI KAMI</span>
+        <p>
+          "Mewujudkan siswa yang berprestasi dan berakhlak mulia serta menjadikan pengurus OSIS
+          sebagai wadah aspirasi dan teladan bagi siswa serta menciptakan lingkungan belajar yang
+          bersih, aman dan nyaman."
+        </p>
+      </div>
+      <div class="hero-cta">
+        <a href="#jurnalistik" class="btn btn-yellow">Baca Berita Terbaru</a>
+        <a href="#aspirasi" class="btn btn-glass">Kirim Aspirasi</a>
+      </div>
+    </section>
+
+    <!-- Susunan Pengurus Inti -->
+    <section id="pengurus" class="section">
+      <div class="section-header">
+        <div>
+          <span class="label-small">STRUKTUR INTI</span>
+          <h2>Badan Pengurus Harian</h2>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card glass officer-card">
+          <span class="role-badge">Ketua OSIS</span>
+          <h3>Putra Alghifari Agva</h3>
+        </article>
+        <article class="card glass officer-card">
+          <span class="role-badge">Wakil Ketua</span>
+          <h3>Muhamad Rafka Ananta</h3>
+        </article>
+        <article class="card glass officer-card">
+          <span class="role-badge">Sekretaris 1</span>
+          <h3>Risma Apriliya</h3>
+        </article>
+        <article class="card glass officer-card">
+          <span class="role-badge">Sekretaris 2</span>
+          <h3>Muhammad Ajid Afriansyah</h3>
+        </article>
+        <article class="card glass officer-card">
+          <span class="role-badge">Bendahara 1</span>
+          <h3>Santi Aprilianingsih</h3>
+        </article>
+        <article class="card glass officer-card">
+          <span class="role-badge">Bendahara 2</span>
+          <h3>Muhammad Ega Maulana</h3>
+        </article>
+      </div>
+    </section>
+
+    <!-- Berita & Dokumentasi Jurnalistik -->
+    <section id="jurnalistik" class="section">
+      <div class="section-header">
+        <div>
+          <span class="label-small">TIM JURNALISTIK</span>
+          <h2>Berita &amp; Dokumentasi</h2>
+        </div>
+        <button id="add-post-btn" class="btn btn-yellow editor-only hidden">+ Tambah Berita</button>
+      </div>
+      <div id="posts-grid" class="grid-3">
+        <p class="muted-text">Memuat berita...</p>
+      </div>
+    </section>
+
+    <!-- Agenda Kegiatan -->
+    <section id="agenda" class="section">
+      <div class="section-header">
+        <div>
+          <span class="label-small">KALENDER KEGIATAN</span>
+          <h2>Agenda Mendatang</h2>
+        </div>
+        <button id="add-agenda-btn" class="btn btn-yellow editor-only hidden">+ Tambah Agenda</button>
+      </div>
+      <div id="agendas-list" class="agenda-stack">
+        <p class="muted-text">Memuat agenda...</p>
+      </div>
+    </section>
+
+    <!-- Kotak Aspirasi (Google Form) -->
+    <section id="aspirasi" class="section">
+      <div class="section-header">
+        <div>
+          <span class="label-small">SUARA SISWA</span>
+          <h2>Kotak Aspirasi</h2>
+        </div>
+      </div>
+      <div class="glass form-wrapper">
+        <p class="form-desc">
+          Punya saran, kritik membangun, atau ide kegiatan untuk sekolah? Sampaikan langsung melalui formulir resmi di bawah ini.
+        </p>
+        <div id="gform-container"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 OSIS SMAN 26 Kabupaten Tangerang. Dibangun dengan gaya minimalis.</p>
+  </footer>
+
+  <!-- Modal Login Editor -->
+  <div id="login-modal" class="modal hidden">
+    <div class="modal-card glass">
+      <div class="modal-head">
+        <h3>Login Editor</h3>
+        <button class="icon-close" data-close="login-modal">&times;</button>
+      </div>
+      <form id="login-form" class="form-stack">
+        <label>
+          <span>Email Terdaftar</span>
+          <input type="email" id="login-email" required placeholder="nama@gmail.com" />
+        </label>
+        <label>
+          <span>Kata Sandi</span>
+          <input type="password" id="login-password" required placeholder="••••••••" />
+        </label>
+        <p id="login-error" class="error-text hidden"></p>
+        <button type="submit" class="btn btn-yellow full-width">Masuk</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Tambah / Edit Berita -->
+  <div id="post-modal" class="modal hidden">
+    <div class="modal-card glass">
+      <div class="modal-head">
+        <h3 id="post-modal-title">Tambah Berita</h3>
+        <button class="icon-close" data-close="post-modal">&times;</button>
+      </div>
+      <form id="post-form" class="form-stack">
+        <input type="hidden" id="post-id" />
+        <label>
+          <span>Judul Berita</span>
+          <input type="text" id="post-title" required placeholder="Contoh: Dokumentasi LDK OSIS 2026" />
+        </label>
+        <label>
+          <span>Kategori</span>
+          <select id="post-category">
+            <option value="Berita">Berita</option>
+            <option value="Dokumentasi">Dokumentasi</option>
+            <option value="Pengumuman">Pengumuman</option>
+            <option value="Prestasi">Prestasi</option>
+          </select>
+        </label>
+        <label>
+          <span>Upload Foto (Opsional)</span>
+          <input type="file" id="post-image-file" accept="image/*" />
+        </label>
+        <input type="hidden" id="post-existing-image" />
+        <label>
+          <span>Isi Berita</span>
+          <textarea id="post-content" rows="5" required placeholder="Tulis detail kegiatan di sini..."></textarea>
+        </label>
+        <button type="submit" id="post-submit-btn" class="btn btn-yellow full-width">Publikasikan</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Tambah Agenda -->
+  <div id="agenda-modal" class="modal hidden">
+    <div class="modal-card glass">
+      <div class="modal-head">
+        <h3>Tambah Agenda</h3>
+        <button class="icon-close" data-close="agenda-modal">&times;</button>
+      </div>
+      <form id="agenda-form" class="form-stack">
+        <label>
+          <span>Nama Kegiatan</span>
+          <input type="text" id="agenda-title" required placeholder="Contoh: Rapat Kerja OSIS" />
+        </label>
+        <label>
+          <span>Tanggal</span>
+          <input type="date" id="agenda-date" required />
+        </label>
+        <label>
+          <span>Lokasi</span>
+          <input type="text" id="agenda-location" required placeholder="Contoh: Aula SMAN 26" />
+        </label>
+        <label>
+          <span>Keterangan Singkat</span>
+          <textarea id="agenda-desc" rows="3" placeholder="Detail singkat kegiatan..."></textarea>
+        </label>
+        <button type="submit" class="btn btn-yellow full-width">Simpan Agenda</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Baca Berita Lengkap -->
+  <div id="reader-modal" class="modal hidden">
+    <div class="modal-card glass modal-wide">
+      <div class="modal-head">
+        <span id="reader-category" class="role-badge"></span>
+        <button class="icon-close" data-close="reader-modal">&times;</button>
+      </div>
+      <img id="reader-image" class="reader-img hidden" alt="Foto berita" />
+      <h2 id="reader-title" class="reader-title"></h2>
+      <p id="reader-meta" class="muted-text"></p>
+      <div id="reader-content" class="reader-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
